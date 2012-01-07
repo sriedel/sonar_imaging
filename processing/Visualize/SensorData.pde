@@ -34,15 +34,17 @@ static class SensorData {
     return this.r;
   }
   
+  final float DegreesToRadiansFactor = (float)Math.PI / 180.0;
+  
   int x() {
-    return int(this.r * sin( this.rho ) * cos( this.phi ));
+    return int(this.r * sin( DegreesToRadiansFactor * this.rho ) * cos( DegreesToRadiansFactor * this.phi ));
   }
   
   int y() {
-    return int(this.r * sin( this.rho ) * sin( this.phi ));
+    return int(this.r * sin( DegreesToRadiansFactor * this.rho ) * sin( DegreesToRadiansFactor * this.phi ));
   }
   
   int z() {
-    return int(this.r * cos( rho ));
+    return int(this.r * cos( DegreesToRadiansFactor * this.rho ));
   }
 }
